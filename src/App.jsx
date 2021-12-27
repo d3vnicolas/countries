@@ -1,9 +1,12 @@
-
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import { light, dark } from './Themes/themes';
+import Template from './Components/Layout';
 
 function App() {
   return (
-    <h1>Hello world</h1>
+    <ThemeProvider theme={light}>
+      <Template />
+    </ThemeProvider>
   );
 }
 
