@@ -1,12 +1,14 @@
-import { ThemeProvider } from 'styled-components';
-import { light, dark } from './Themes/themes';
-import Template from './Components/Layout';
+import React from 'react'
+import Header from './Components/Header';
+import Rotas from './Routes';
+
 
 function App() {
   return (
-    <ThemeProvider theme={light}>
-      <Template />
-    </ThemeProvider>
+    <>
+      <Header />
+      <Rotas />
+    </>
   );
 }
 
