@@ -1,32 +1,37 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Master, Search, Input, Cards } from './main';
+import { BsSearch } from 'react-icons/bs';
+import Card from '../Card';
 
-const Master = styled.main`
-    width: 100%;
-    height: 100%;
-    background-color: ${props => props.theme.colors.background};
-`;
 
-const Search = styled.div`
-
-`;
 
 const Main = () => {
     return (
         <Master>
             <div className="container">
                 <Search>
-                    <input type="search" />
-                    <select name="region">
-                        <option value="" selected style={{display: 'none'}}>Filter by Region</option>
-                        <option value="valor1">Valor 1</option>
-                        <option value="valor2">Valor 2</option>
-                        <option value="valor3">Valor 3</option>
+                    <Input>
+                        <BsSearch />
+                        <input type="search" className="input" placeholder="Search for a country"/>
+                    </Input>
+                    <select defaultValue={'default'} name="region" className="input">
+                        <option value="default" style={{display: 'none'}} >Filter by region</option>
+                        <option value="africa"> Africa </option>
+                        <option value="america"> America </option>
+                        <option value="asia"> Asia </option>
+                        <option value="europe"> Europe </option>
+                        <option value="Oceania"> Oceania </option>
                     </select>
                 </Search>
+                <Cards>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </Cards>
             </div>
         </Master>
     );
 }
-
+ 
 export default Main;

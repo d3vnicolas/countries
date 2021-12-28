@@ -1,18 +1,25 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
 import Main from '../Components/Main';
+import { BrowserRouter as Router, Routes as Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Rota = styled.div`
     grid-area: main;
     width: 100%;
+    height: 100%;
 `;
 
-const Route = () => {
+const Rotas = () => {
     return (
         <Rota>
-            <Main />
+            <Router>
+                <Switch>
+                    <Route path="/" element={<Main />} />
+
+                </Switch>
+            </Router>
         </Rota>
     );
 }
 
-export default Route;
+export default Rotas;
