@@ -1,87 +1,30 @@
-const API_KEY = '7784c6892676db9815eae412c3984229';
-const API_BASE = 'https://api.themoviedb.org/3';
-/*
-- originais netflix
-- recomendados
-- mais votados
-- ação
-- comédia
-- terror
-- romance
-- documentários
-*/
+const api = 'https://restcountries.com/v2/';
 
-const basicFetch = async (endpoint) => {
-    const req = await fetch(`${API_BASE}${endpoint}`);
-    const json = await req.json();
-    return json;
+const dataApi = async (endpoint) => {
+    let request = await fetch(`${api}${endpoint}`);
+    let response = await request.json();
+    return response;
 }
 
-const HomeListGet = {
-    getHomeList: async () => {
-        return [
-            {
-                slug: 'originals',
-                title: 'Originais do Netflix',
-                items: await basicFetch(`/discover/tv?with_network=213?language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug: 'trending',
-                title: 'Recomendados para você',
-                items: await basicFetch(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug: 'torated',
-                title: 'Em alta',
-                items: await basicFetch(`/movie/top_rated?language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug: 'action',
-                title: 'Ação',
-                items: await basicFetch(`/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug: 'comedy',
-                title: 'Comédia',
-                items: await basicFetch(`/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug: 'horror',
-                title: 'Terror',
-                items: await basicFetch(`/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug: 'romance',
-                title: 'Romance',
-                items: await basicFetch(`/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
-            },
-            {
-                slug: 'documentary',
-                title: 'Documentário',
-                items: await basicFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
-            },
-        ]
+const countries = {
+    all: async () => {
+        return await dataApi('all');
     },
-    getMovieInfo: async (movieId, type) => {
-        let info = {};
-
-        if(movieId){
-            switch(type){
-                case 'movie':
-                    info = await basicFetch(`/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`);
-                break;
-
-                case 'tv':
-                    info = await basicFetch(`/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`);
-                break;
-                default:
-                    info = null;
-                break;
-            }
-        }
-
-        return info;
+    africa: async () => {
+        return await dataApi('region/africa');
+    },
+    americas: async () => {
+        return await dataApi('region/americas');
+    },
+    asia: async () => {
+        return await dataApi('region/asia');
+    },
+    europe: async () => {
+        return await dataApi('region/europe');
+    },
+    oceania: async () => {
+        return await dataApi('region/oceania');
     }
 }
 
-export default HomeListGet;
+export default countries;

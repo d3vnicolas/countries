@@ -35,12 +35,12 @@ const Info = styled.div`
 const Card = (props) => {
     return (
         <Wrapper>
-            <div className="country"></div>
+            <img src={props.flag} width="250" height="150"/>
             <Info>
-                <h3>Brasil</h3>
-                <p><b>population:</b> 230 milhões</p>
-                <p><b>region:</b> america do sul</p>
-                <p><b>capital:</b> brasilia</p>
+                <h3> {props.name} </h3>
+                <p><b>population:</b> {props.population} </p>
+                <p><b>region:</b> {props.region} </p>
+                <p><b>capital:</b> {props.capital} </p>
             </Info>
         </Wrapper>
     );
