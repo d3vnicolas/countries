@@ -9,21 +9,11 @@ const Country = () => {
 
     let { name } = useParams();
     const [country, setCountry] = useState([]);
-    const [borders, setBorders] = useState();
 
     useEffect(async () => {
         let res = await countries.fullName(name);
         setCountry(res[0]);
     }, []);
-
-    useEffect(async () => {
-        if (typeof country === 'object' && !Array.isArray(country) && country !== null) {
-            if (country.borders) {
-                let res = await countries.borders(country.borders);
-                setBorders(res);
-            }
-        }
-    }, [country]);
 
     return (
         <Master>
@@ -44,20 +34,20 @@ const Country = () => {
                                     <p><b>Capital:</b> {country.capital[0]} </p>
                                 </div>
                                 <div className="right">
-                                    <p><b>Top Level Domain:</b> name </p>
+                                    <p><b>Top Level Domain:</b> {country.tld} </p>
                                     <p><b>Currencies:</b> name </p>
                                     <p><b>Languages:</b> name </p>
                                 </div>
-
-
-                                <div className="bottom">
-                                    <div className="wrapper_borders">
+                                {country.borders &&
+                                    <div className="bottom">
+                                        <div className="wrapper_borders">
                                             <p>Border countries: </p>
+                                            {country.borders.map((bord, key) => (
+                                                <span key={key} className="borders">{ bord }</span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-
-
-
+                                }
                             </Infos>
                         </Right>
                     </Wrapper>

@@ -27,19 +27,6 @@ const countries = {
     },
     fullName: async (name) => {
         return await dataApi('name/'+name+'?fullText=true');
-    },
-    borders: async (data) => {
-        if(data.length){
-            let handleName = {};
-            let result = [];
-            data.map(async bord => {
-                handleName = await dataApi(`alpha/${bord}?fields=name`);
-                result.push(handleName);
-            });
-            return result;
-        }
-        return false;
-        
     }
 }
 

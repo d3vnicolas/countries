@@ -69,13 +69,13 @@ export const Infos = styled.div`
             align-items: center;
 
             p{
-                margin-right: 16px;
+                margin-right: 12px;
             }
 
             .borders{
             background-color: ${props => props.theme.colors.elements};
             padding: 0 16px;
-            margin: 4px 2px;
+            margin: 4px;
 
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
