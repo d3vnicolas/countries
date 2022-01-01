@@ -1,5 +1,6 @@
 import React from 'react'
 import Main from '../Components/Main';
+import Country from '../Components/Country';
 import { BrowserRouter as Router, Routes as Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -15,7 +16,7 @@ const Rotas = () => {
             <Router>
                 <Switch>
                     <Route path="/" element={<Main />} />
-
+                    <Route path="/country/:name" element={ <Country /> }/>
                 </Switch>
             </Router>
         </Rota>

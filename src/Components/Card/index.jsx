@@ -7,11 +7,17 @@ const Wrapper = styled.div`
     box-shadow: 0px 2px 8px rgba(0, 0, 0, .2);
     border-radius: 4px;
     margin-bottom: 80px;
+    overflow: hidden;
+    transition: transform 300ms ease;
+    cursor: pointer;
+
+    &:hover{
+        transform: scale(1.1);
+    }
 
     .country{
         width: 100%;
         height: 150px;
-        background-color: chartreuse;
     }
 `;
 
@@ -33,9 +39,14 @@ const Info = styled.div`
 `;
 
 const Card = (props) => {
+
+    const handleCountryPage = () => {
+        window.location.href = `/country/${props.name}`;
+    }
+
     return (
-        <Wrapper>
-            <img src={props.flag} width="250" height="150"/>
+        <Wrapper onClick={() => handleCountryPage()}>
+            <img src={props.flag} width="250" height="150" />
             <Info>
                 <h3> {props.name} </h3>
                 <p><b>population:</b> {props.population} </p>

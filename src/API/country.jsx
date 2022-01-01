@@ -1,4 +1,4 @@
-const api = 'https://restcountries.com/v2/';
+const api = 'https://restcountries.com/v3.1/';
 
 const dataApi = async (endpoint) => {
     let request = await fetch(`${api}${endpoint}`);
@@ -8,7 +8,7 @@ const dataApi = async (endpoint) => {
 
 const countries = {
     all: async () => {
-        return await dataApi('all');
+        return await dataApi('all?fields=name,population,region,subregion,capital,flags');
     },
     africa: async () => {
         return await dataApi('region/africa');
@@ -24,6 +24,22 @@ const countries = {
     },
     oceania: async () => {
         return await dataApi('region/oceania');
+    },
+    fullName: async (name) => {
+        return await dataApi('name/'+name+'?fullText=true');
+    },
+    borders: async (data) => {
+        if(data.length){
+            let handleName = {};
+            let result = [];
+            data.map(async bord => {
+                handleName = await dataApi(`alpha/${bord}?fields=name`);
+                result.push(handleName);
+            });
+            return result;
+        }
+        return false;
+        
     }
 }
 

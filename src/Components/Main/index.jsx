@@ -9,17 +9,9 @@ const Main = () => {
 
     const [all, setAll] = useState([]);
     
-    useEffect(() => {
-        const loadAll = async () => {
-            
-            let list = await countries.asia();
-
-            setAll(list);
-        }
-
-        loadAll();
+    useEffect( async () => {
+        setAll(await countries.all());
     }, []);
-    console.log(all[9])
     return (
         <Master>
             <div className="container">
@@ -28,7 +20,7 @@ const Main = () => {
                         <BsSearch />
                         <input type="search" className="input" placeholder="Search for a country"/>
                     </Input>
-                    <select defaultValue={'default'} name="region" className="input">
+                    <select defaultValue="default" name="region" className="input">
                         <option value="default" style={{display: 'none'}} >Filter by region</option>
                         <option value="africa"> Africa </option>
                         <option value="america"> Americas </option>
@@ -41,7 +33,7 @@ const Main = () => {
                     {all.map((country, index) => (
                         <Card 
                             key={index}
-                            name={country.name}
+                            name={country.name.common}
                             population={country.population}
                             region={country.region}
                             capital={country.capital}

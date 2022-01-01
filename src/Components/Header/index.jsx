@@ -30,6 +30,8 @@ const Wrapper = styled.div`
         display: flex;
         align-items: center;
 
+        cursor: pointer;
+
         svg{
             margin-right: 8px;
         }

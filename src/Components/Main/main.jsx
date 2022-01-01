@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Master = styled.main`
     width: 100%;
     padding: 57px 0;
+    
 
     .input{
         background-color: ${props => props.theme.colors.input};
