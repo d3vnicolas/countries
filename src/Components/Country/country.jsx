@@ -58,6 +58,10 @@ export const Infos = styled.div`
         p{
             margin: 4px 0;
         }
+
+        .lang:not(:last-of-type)::after{
+            content: ", ";
+        }
     }
     .bottom{
         grid-area: bottom;

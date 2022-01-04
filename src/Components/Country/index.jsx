@@ -28,22 +28,42 @@ const Country = () => {
                             <h2>{country.name.common}</h2>
                             <Infos>
                                 <div className="left">
-                                    <p><b>Population:</b> {country.population} </p>
+                                    <p><b>Population:</b> {(country.population).toLocaleString('pt-BR')} </p>
                                     <p><b>Region:</b> {country.region} </p>
-                                    <p><b>Sub region:</b> {country.subregion} </p>
-                                    <p><b>Capital:</b> {country.capital[0]} </p>
+                                    {country.subregion &&
+                                        <p><b>Sub region:</b> {country.subregion} </p>
+                                    }
+                                    {country.capital &&
+                                        <p><b>Capital:</b> {country.capital[0]} </p>
+                                    }
                                 </div>
                                 <div className="right">
                                     <p><b>Top Level Domain:</b> {country.tld} </p>
-                                    <p><b>Currencies:</b> name </p>
-                                    <p><b>Languages:</b> name </p>
+                                    
+                                    {country.currencies &&
+                                        <p><b>Currencies:</b> {
+                                            Object.entries(country.currencies).map(el => (
+                                                el.map((curr, key) => (
+                                                    <span key={key}> {curr.name} </span>
+                                                ))
+                                            ))
+                                        } </p>
+                                    }
+
+                                    {country.languages &&
+                                        <p><b>Languages:</b> {
+                                            Object.keys(country.languages).map((lang, key) => (
+                                                <span key={key} className="lang">{country.languages[lang]}</span>
+                                            ))
+                                        } </p>
+                                    }
                                 </div>
                                 {country.borders &&
                                     <div className="bottom">
                                         <div className="wrapper_borders">
                                             <p>Border countries: </p>
                                             {country.borders.map((bord, key) => (
-                                                <span key={key} className="borders">{ bord }</span>
+                                                <span key={key} className="borders">{bord}</span>
                                             ))}
                                         </div>
                                     </div>

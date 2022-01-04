@@ -53,3 +53,14 @@ export const Cards = styled.section`
     justify-content: space-between;
     flex-wrap: wrap;
 `
+
+export const Message = styled.div`
+    width: 100%;
+    padding: 60px 0;
+    text-align: center;
+
+    p{
+        font-size: 32px;
+        color: ${props => props.theme.colors.text};
+    }
+`;

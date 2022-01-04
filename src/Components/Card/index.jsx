@@ -49,7 +49,7 @@ const Card = (props) => {
             <img src={props.flag} width="250" height="150" />
             <Info>
                 <h3> {props.name} </h3>
-                <p><b>population:</b> {props.population} </p>
+                <p><b>population:</b> {(props.population).toLocaleString('pt-BR')} </p>
                 <p><b>region:</b> {props.region} </p>
                 <p><b>capital:</b> {props.capital} </p>
             </Info>
