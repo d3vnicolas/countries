@@ -8,17 +8,31 @@ import countries from '../../API/country';
 const Main = () => {
 
     const [all, setAll] = useState([]);
+    const [search, setSearch] = useState('');
+    const [region, setRegion] = useState('');
+
 
     useEffect(async () => {
         setAll(await countries.all());
+        setSearch('');
     }, []);
 
     const handleChangeSearch = async ({ target }) => {
+        setSearch(target.value);
         if (target.value !== '') {
             let filter = await countries.search(target.value);
             setAll(filter);
         } else {
             setAll(await countries.all());
+        }
+    }
+
+    const handleRegion = async ({ target }) => {
+        if (target.value === 'all') {
+            setAll(await countries.all());
+        } else {
+            let req = await countries.region(target.value);
+            setAll(req);
         }
     }
     return (
@@ -27,15 +41,16 @@ const Main = () => {
                 <Search>
                     <Input>
                         <BsSearch />
-                        <input onChange={handleChangeSearch} type="search" className="input" placeholder="Search for a country" />
+                        <input onChange={handleChangeSearch} value={search} type="text" className="input" placeholder="Search for a country" />
                     </Input>
-                    <select defaultValue="default" name="region" className="input">
+                    <select onChange={handleRegion} defaultValue={region} id="region" name="region" className="input">
                         <option value="default" style={{ display: 'none' }} >Filter by region</option>
                         <option value="africa"> Africa </option>
-                        <option value="america"> Americas </option>
+                        <option value="americas"> Americas </option>
                         <option value="asia"> Asia </option>
                         <option value="europe"> Europe </option>
-                        <option value="Oceania"> Oceania </option>
+                        <option value="oceania"> Oceania </option>
+                        <option value="all"> All </option>
                     </select>
                 </Search>
                 {all.status &&

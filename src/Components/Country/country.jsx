@@ -37,7 +37,7 @@ export const Infos = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: 4fr 2fr;
     grid-template-areas: 
         "left right"
         "bottom bottom"

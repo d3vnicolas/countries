@@ -10,20 +10,8 @@ const countries = {
     all: async () => {
         return await dataApi('all?fields=name,population,region,subregion,capital,flags');
     },
-    africa: async () => {
-        return await dataApi('region/africa');
-    },
-    americas: async () => {
-        return await dataApi('region/americas');
-    },
-    asia: async () => {
-        return await dataApi('region/asia');
-    },
-    europe: async () => {
-        return await dataApi('region/europe');
-    },
-    oceania: async () => {
-        return await dataApi('region/oceania');
+    region: async (region) => {
+        return await dataApi('region/'+region);
     },
     fullName: async (name) => {
         return await dataApi('name/'+name+'?fullText=true');

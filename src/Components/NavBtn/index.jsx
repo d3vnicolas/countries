@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Btn = styled.button`
     display: flex;
@@ -26,9 +26,9 @@ const Btn = styled.button`
 `;
 
 const NavBtn = (props) => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     return (
-        <Btn onClick={ () => navigate(-1) }>
+        <Btn onClick={ () => window.location.href='/' }>
             {props.icon}
             {props.title}
         </Btn>

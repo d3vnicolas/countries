@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaRegMoon } from 'react-icons/fa';
 import styled from 'styled-components';
+import { useGlobal } from '../../Context/global';
 
 const Head = styled.header`
     grid-area: header;
@@ -38,13 +39,27 @@ const Wrapper = styled.div`
     }
 `;
 
+
 const Header = () => {
+
+    const { theme, setTheme } = useGlobal();
+
+    const handleToggleTheme = () => {
+        if (theme === 'dark') {
+            localStorage.setItem("theme", "light");
+            setTheme("light");
+        } else {
+            localStorage.setItem("theme", "dark");
+            setTheme("dark");
+        }
+    }
+
     return (
         <Head>
             <div className="container">
                 <Wrapper>
                     <h1>Where in the world?</h1>
-                    <div>
+                    <div onClick={handleToggleTheme}>
                         <FaRegMoon /> Dark Mode
                     </div>
                 </Wrapper>
@@ -52,5 +67,5 @@ const Header = () => {
         </Head>
     );
 }
- 
+
 export default Header;
