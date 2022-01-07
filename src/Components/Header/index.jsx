@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaRegMoon } from 'react-icons/fa';
+import { BsSunFill } from 'react-icons/bs';
 import styled from 'styled-components';
 import { useGlobal } from '../../Context/global';
 
@@ -60,7 +61,8 @@ const Header = () => {
                 <Wrapper>
                     <h1>Where in the world?</h1>
                     <div onClick={handleToggleTheme}>
-                        <FaRegMoon /> Dark Mode
+                        {theme === 'light' ? <FaRegMoon /> : <BsSunFill />}
+                        {theme === 'light' ? 'Dark Mode' : ' Light Mode'}
                     </div>
                 </Wrapper>
             </div>
