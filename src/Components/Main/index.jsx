@@ -9,7 +9,7 @@ import { useGlobal } from '../../Context/global';
 const Main = () => {
 
     const { all, setAll } = useGlobal();
-    const [search, setSearch] = useState('');
+    const { search, setSearch } = useGlobal();
     const { region, setRegion } = useGlobal();
 
     const handleChangeSearch = async ({ target }) => {

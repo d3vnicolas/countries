@@ -13,6 +13,7 @@ export const GlobalProvider = props => {
     });
     const [all, setAll] = useState([]);
     const [region, setRegion] = useState('default');
+    const [search, setSearch] = useState('');
     return(
         <GlobalContext.Provider
             value={{
@@ -21,7 +22,9 @@ export const GlobalProvider = props => {
                 all, 
                 setAll,
                 region, 
-                setRegion
+                setRegion,
+                search, 
+                setSearch
             }}
         >
             {props.children}
