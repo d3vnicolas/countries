@@ -3,19 +3,14 @@ import { Master, Search, Input, Cards, Message } from './main';
 import { BsSearch } from 'react-icons/bs';
 import Card from '../Card';
 import countries from '../../API/country';
+import { useGlobal } from '../../Context/global';
 
 
 const Main = () => {
 
-    const [all, setAll] = useState([]);
+    const { all, setAll } = useGlobal();
     const [search, setSearch] = useState('');
-    const [region, setRegion] = useState('');
-
-
-    useEffect(async () => {
-        setAll(await countries.all());
-        setSearch('');
-    }, []);
+    const { region, setRegion } = useGlobal();
 
     const handleChangeSearch = async ({ target }) => {
         setSearch(target.value);
@@ -28,6 +23,7 @@ const Main = () => {
     }
 
     const handleRegion = async ({ target }) => {
+        setRegion(target.value);
         if (target.value === 'all') {
             setAll(await countries.all());
         } else {
@@ -35,6 +31,7 @@ const Main = () => {
             setAll(req);
         }
     }
+
     return (
         <Master>
             <div className="container">
@@ -43,7 +40,7 @@ const Main = () => {
                         <BsSearch />
                         <input onChange={handleChangeSearch} value={search} type="text" className="input" placeholder="Search for a country" />
                     </Input>
-                    <select onChange={handleRegion} defaultValue={region} id="region" name="region" className="input">
+                    <select onChange={handleRegion} value={region} id="region" name="region" className="input">
                         <option value="default" style={{ display: 'none' }} >Filter by region</option>
                         <option value="africa"> Africa </option>
                         <option value="americas"> Americas </option>

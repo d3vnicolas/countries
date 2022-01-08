@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Main from '../Components/Main';
 import Country from '../Components/Country';
 import { BrowserRouter as Router, Routes as Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import { useGlobal } from '../Context/global';
+import countries from '../API/country';
 
 const Rota = styled.div`
     grid-area: main;
@@ -11,12 +13,19 @@ const Rota = styled.div`
 `;
 
 const Rotas = () => {
+
+    const { setAll } = useGlobal();
+
+    useEffect(async () => {
+        setAll(await countries.all());
+    }, []);
+
     return (
         <Rota>
             <Router>
                 <Switch>
                     <Route path="/" element={<Main />} />
-                    <Route path="/country/:name" element={ <Country /> }/>
+                    <Route path="/country/:name" element={<Country />} />
                 </Switch>
             </Router>
         </Rota>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const Wrapper = styled.div`
     width: 250px;
@@ -12,12 +13,11 @@ const Wrapper = styled.div`
     cursor: pointer;
 
     &:hover{
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
-    .country{
-        width: 100%;
-        height: 150px;
+    a{
+        text-decoration: none;
     }
 `;
 
@@ -40,19 +40,17 @@ const Info = styled.div`
 
 const Card = (props) => {
 
-    const handleCountryPage = () => {
-        window.location.href = `/country/${props.name}`;
-    }
-
     return (
-        <Wrapper onClick={() => handleCountryPage()}>
-            <img src={props.flag} width="250" height="150" />
-            <Info>
-                <h3> {props.name} </h3>
-                <p><b>population:</b> {(props.population).toLocaleString('pt-BR')} </p>
-                <p><b>region:</b> {props.region} </p>
-                <p><b>capital:</b> {props.capital} </p>
-            </Info>
+        <Wrapper>
+            <NavLink to={`/country/${props.name}`}>
+                <img src={props.flag} width="250" height="150" />
+                <Info>
+                    <h3> {props.name} </h3>
+                    <p><b>population:</b> {(props.population).toLocaleString('pt-BR')} </p>
+                    <p><b>region:</b> {props.region} </p>
+                    <p><b>capital:</b> {props.capital} </p>
+                </Info>
+            </NavLink>
         </Wrapper>
     );
 }

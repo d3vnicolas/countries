@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Components/Header';
 import Rotas from './Routes';
 import GlobalStyle from './styles/global';
@@ -9,6 +9,11 @@ import { useGlobal } from './Context/global';
 
 function App() {
   const { theme } = useGlobal();
+
+  useEffect(() => {
+    console.log('once load');
+  }, [])
+
   return (
     <ThemeProvider theme={theme === 'light' ? light : dark}>
       <GlobalStyle />

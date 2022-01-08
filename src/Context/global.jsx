@@ -11,11 +11,17 @@ export const GlobalProvider = props => {
             return localStorage.getItem("theme") === 'light'?'light':'dark';
         }
     });
+    const [all, setAll] = useState([]);
+    const [region, setRegion] = useState('default');
     return(
         <GlobalContext.Provider
             value={{
                 theme, 
-                setTheme
+                setTheme,
+                all, 
+                setAll,
+                region, 
+                setRegion
             }}
         >
             {props.children}
