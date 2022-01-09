@@ -23,6 +23,9 @@ const Wrapper = styled.div`
     h1{
         font-weight: 800;
         font-size: 26px;
+        @media (max-width: 580px){
+            font-size: 18px;
+        }
     }
 
     div{

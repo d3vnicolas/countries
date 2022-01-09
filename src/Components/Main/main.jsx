@@ -13,7 +13,6 @@ export const Master = styled.main`
         color: ${props => props.theme.colors.text};
         font-size: 16px;
         outline: none;
-        margin-bottom: 12px;
     }
 `;
 
@@ -24,7 +23,14 @@ export const Search = styled.div`
     justify-content: space-between;
 
     select{
+        @media (max-width: 680px){
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
+        }
+        width: 160px;
         padding: 12px;
+
     }
 `;
 
@@ -33,9 +39,14 @@ export const Input = styled.div`
     position: relative;
     margin-right: 22px;
 
+    @media (max-width: 680px){
+        width: 100%;
+        margin: 0 0 22px 0;
+    }
+
     svg{
         position: absolute;
-        top: calc(50% - 6px);
+        top: 50%;
         transform: translateY(-50%);
         left: 16px;
         fill: ${props => props.theme.colors.text};
