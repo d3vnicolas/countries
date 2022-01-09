@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Master, Search, Input, Cards, Message } from './main';
 import { BsSearch } from 'react-icons/bs';
 import Card from '../Card';
 import countries from '../../API/country';
 import { useGlobal } from '../../Context/global';
+import Loading from '../Loading';
+import { useEffect } from 'react/cjs/react.development';
 
 
 const Main = () => {
@@ -14,6 +16,7 @@ const Main = () => {
 
     const handleChangeSearch = async ({ target }) => {
         setSearch(target.value);
+        setRegion('default');
         if (target.value !== '') {
             let filter = await countries.search(target.value);
             setAll(filter);
@@ -24,6 +27,7 @@ const Main = () => {
 
     const handleRegion = async ({ target }) => {
         setRegion(target.value);
+        setAll([]);
         if (target.value === 'all') {
             setAll(await countries.all());
         } else {
@@ -32,11 +36,25 @@ const Main = () => {
         }
     }
 
+    const handleRenderStatus = () => {
+        if (all.status) {
+            return (
+                <Message>
+                    <p>Not found.</p>
+                </Message>
+            );
+        } else {
+            return (
+                <Loading />
+            );
+        }
+    }
+
     return (
         <Master>
             <div className="container">
                 <Search>
-                    <Input>
+                    <Input >
                         <BsSearch />
                         <input onChange={handleChangeSearch} value={search} type="text" className="input" placeholder="Search for a country" />
                     </Input>
@@ -50,12 +68,7 @@ const Main = () => {
                         <option value="all"> All </option>
                     </select>
                 </Search>
-                {all.status &&
-                    <Message>
-                        <p>Not found.</p>
-                    </Message>
-                }
-                {Array.isArray(all) &&
+                {all.length > 0 ?
                     <Cards>
                         {all.map((country, index) => (
                             <Card
@@ -68,6 +81,8 @@ const Main = () => {
                             />
                         ))}
                     </Cards>
+                    :
+                    handleRenderStatus()
                 }
             </div>
         </Master>

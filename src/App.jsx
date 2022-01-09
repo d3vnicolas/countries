@@ -10,10 +10,6 @@ import { useGlobal } from './Context/global';
 function App() {
   const { theme } = useGlobal();
 
-  useEffect(() => {
-    console.log('once load');
-  }, [])
-
   return (
     <ThemeProvider theme={theme === 'light' ? light : dark}>
       <GlobalStyle />

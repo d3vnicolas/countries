@@ -30,6 +30,10 @@ export const Input = styled.div`
     width: 400px;
     position: relative;
 
+    &:disabled{
+        visibility: hidden;
+    }
+
     svg{
         position: absolute;
         top: 50%;
