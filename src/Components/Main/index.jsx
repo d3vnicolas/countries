@@ -5,8 +5,6 @@ import Card from '../Card';
 import countries from '../../API/country';
 import { useGlobal } from '../../Context/global';
 import Loading from '../Loading';
-import { useEffect } from 'react/cjs/react.development';
-
 
 const Main = () => {
 

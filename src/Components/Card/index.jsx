@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     background-color: ${props => props.theme.colors.elements};
     box-shadow: 0px 2px 8px rgba(0, 0, 0, .2);
     border-radius: 4px;
-    margin-bottom: 80px;
+    margin: 0 auto 32px auto;
     overflow: hidden;
     transition: transform 300ms ease;
     cursor: pointer;

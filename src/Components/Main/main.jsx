@@ -13,12 +13,14 @@ export const Master = styled.main`
         color: ${props => props.theme.colors.text};
         font-size: 16px;
         outline: none;
+        margin-bottom: 12px;
     }
 `;
 
 export const Search = styled.div`
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     select{
@@ -29,14 +31,11 @@ export const Search = styled.div`
 export const Input = styled.div`
     width: 400px;
     position: relative;
-
-    &:disabled{
-        visibility: hidden;
-    }
+    margin-right: 22px;
 
     svg{
         position: absolute;
-        top: 50%;
+        top: calc(50% - 6px);
         transform: translateY(-50%);
         left: 16px;
         fill: ${props => props.theme.colors.text};
@@ -54,8 +53,8 @@ export const Cards = styled.section`
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 12px;
 `
 
 export const Message = styled.div`
