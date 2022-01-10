@@ -56,7 +56,7 @@ const Card = (props) => {
     return (
         <Wrapper>
             <NavLink to={`/country/${props.name}`}>
-                <img src={props.flag} />
+                <img src={props.flag} alt={`flag of ${props.name}`} />
                 <Info>
                     <h3> {props.name} </h3>
                     <p><b>population:</b> {(props.population).toLocaleString('pt-BR')} </p>

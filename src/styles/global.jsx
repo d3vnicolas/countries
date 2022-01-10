@@ -9,7 +9,7 @@ export default createGlobalStyle`
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    -webkit-tap-highlight-color: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html, body, #root{
