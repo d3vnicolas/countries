@@ -7,6 +7,9 @@ const Btn = styled.button`
     align-items: center;
 
     padding: 6px 22px;
+    @media (max-width: 580px){
+        padding: 12px 32px;
+    }
 
     border: none;
     border-radius: 2px;

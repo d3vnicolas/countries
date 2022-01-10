@@ -17,7 +17,7 @@ const countries = {
         return await dataApi('name/'+name+'?fullText=true');
     },
     search: async (word) => {
-        return await dataApi('/name/'+word);
+        return await dataApi('name/'+word);
     }
 }
 

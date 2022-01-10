@@ -10,9 +10,13 @@ const Country = () => {
     let { name } = useParams();
     const [country, setCountry] = useState([]);
 
-    useEffect(async () => {
-        let res = await countries.fullName(name);
-        setCountry(res[0]);
+    const fetchData = async () => {
+        const response = await countries.fullName(name);
+        setCountry(response[0]);
+    }
+
+    useEffect(() => {
+        fetchData();
     }, []);
 
     return (
@@ -22,7 +26,7 @@ const Country = () => {
                 {country.length !== 0 &&
                     <Wrapper>
                         <Left>
-                            <img src={country.flags.png} />
+                            <img src={country.flags.svg} />
                         </Left>
                         <Right>
                             <h2>{country.name.common}</h2>

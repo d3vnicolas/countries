@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 const Wrapper = styled.div`
     width: 250px;
+    @media (max-width: 580px){
+        width: 80%;
+        max-width: 300px;
+    }
     background-color: ${props => props.theme.colors.elements};
     box-shadow: 0px 2px 8px rgba(0, 0, 0, .2);
     border-radius: 4px;
@@ -18,6 +22,15 @@ const Wrapper = styled.div`
 
     a{
         text-decoration: none;
+    }
+
+    img{
+        width: 100%;
+        height: 150px;
+        @media (max-width: 580px){
+            height: 170px;
+        }
+        
     }
 `;
 
@@ -43,7 +56,7 @@ const Card = (props) => {
     return (
         <Wrapper>
             <NavLink to={`/country/${props.name}`}>
-                <img src={props.flag} width="250" height="150" />
+                <img src={props.flag} />
                 <Info>
                     <h3> {props.name} </h3>
                     <p><b>population:</b> {(props.population).toLocaleString('pt-BR')} </p>

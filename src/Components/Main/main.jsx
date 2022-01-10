@@ -65,7 +65,7 @@ export const Cards = styled.section`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 22px;
 `
 
 export const Message = styled.div`

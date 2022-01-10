@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Master = styled.section`
     width: 100%;
     height: 100%;
-    padding-top: 64px;
+    padding-top: 32px;
     color: ${props => props.theme.colors.text};
 `;
 
@@ -18,43 +18,66 @@ export const Wrapper = styled.div`
 
 export const Left = styled.div`
     width: 50%;
-    min-width: 500px;
+    padding-right: 12px;
 
+    @media (max-width: 960px){
+        width: 100%;
+        padding: 0;
+        margin-bottom: 22px;
+    }
 
     img{
-        width: 80%;
-        height: 350px;
+        width: 100%;
+        min-height: 335px;
+        object-fit: cover;
+
+        @media (max-width: 580px){
+            min-height: unset;
+            max-height: 250px;
+        }
     }
 `;
 
 export const Right = styled.div`
     width: 50%;
-    min-width: 500px;
-    padding-left: 32px;
+
+    @media (max-width: 960px){
+        width: 100%;
+    }
+
+    height: 335px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    h2{
+        margin-bottom: 32px;
+    }
 `;
 
 export const Infos = styled.div`
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 4fr 2fr;
-    grid-template-areas: 
-        "left right"
-        "bottom bottom"
-    ;
-
-    div:not(:last-of-type){
-        padding: 32px 0 64px 0;
-    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     .left{
-        grid-area: left;
+        width: 50%;
+        @media (max-width: 1080px){
+            width: 100%;
+            margin-bottom: 22px;
+        }
+
         p{
             margin: 4px 0;
         }
     }
     .right{
-        grid-area: right;
+        width: 50%;
+        @media (max-width: 1080px){
+            width: 100%;
+        }
+
         p{
             margin: 4px 0;
         }
@@ -64,7 +87,12 @@ export const Infos = styled.div`
         }
     }
     .bottom{
-        grid-area: bottom;
+        width: 100%;
+        margin-top: 32px;
+
+        @media (max-width: 960px){
+            margin-top: 22px;
+        }
 
         .wrapper_borders{
             width: 100%;
