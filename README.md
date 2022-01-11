@@ -91,7 +91,7 @@
 
 # 💻 Como rodar/acessar
 
-### Através deste <a href="countries-tau-dun.vercel.app">link</a> você encontra a versão final do projeto.
+### Através deste <a href="https://countries-tau-dun.vercel.app/">link</a> você encontra a versão final do projeto.
 <br>
 
 ### Para rodar o projeto na sua máquina local:
