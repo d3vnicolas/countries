@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+<h1 align="center">
+  Encontre informações básicas de qualquer país do mundo 🌎
+</h1>
+<h1 align="center">
+  Where in the world.
+</h1>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📖 Informações
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+- Este projeto é um desafio do <a href="https://www.frontendmentor.io/home">Front-End Mentor.</a>
+- Você vai encontrar informações como: idioma, moeda, capital, população e etc.
+- Os dados são fornecidos pela <a href="https://restcountries.com/">Rest countries API</a> em sua versão 3.
+- É possível pesquisar pelo nome do país ou filtrar pela região.
+- Rest countries é totalmente em inglês portanto, o conteúdo e pesquisas seguem o mesmo padrão.
+- Totalmente responsivo e com temas claro e escuro.
+<br>
+<br>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## 🚀 Tecnologias utilizadas 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `npm run build`
+- ReactJS
+- Styled-Components
+- React-Router-Dom
+- ContextAPI
+- Rest API
+- Polished
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
+<br>
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots 📸
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="center">
+    <img src="./src/Assets/Images/desktop-light-home.png" width="700">
+</p>
 
-### `npm run eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p align="center">
+    <img src="./src/Assets/Images/desktop-light-country.png" width="700">
+</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p align="center">
+    <img src="./src/Assets/Images/desktop-dark-home.png" width="700">
+</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br>
 
-## Learn More
+<p align="center">
+    <img src="./src/Assets/Images/desktop-dark-country.png" width="700">
+</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="center">
+    <img src="./src/Assets/Images/mobile-dark-home.png" width="300">
+</p>
 
-### Code Splitting
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<p align="center">
+    <img src="./src/Assets/Images/mobile-dark-country.png" width="300">
+</p>
 
-### Analyzing the Bundle Size
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="center">
+    <img src="./src/Assets/Images/mobile-light-home.png" width="300">
+</p>
 
-### Making a Progressive Web App
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p align="center">
+    <img src="./src/Assets/Images/mobile-light-country.png" width="300">
+</p>
 
-### Advanced Configuration
+<br>
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# 💻 Como rodar/acessar
 
-### Deployment
+### Através deste <a href="">link</a> você encontra a versão final do projeto.
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Para rodar o projeto na sua máquina local:
 
-### `npm run build` fails to minify
+```bash
+# Clonar o repositório
+git clone https://github.com/d3vnicolas/countries.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# acesse o repositorio clonado
+cd countries
+
+# instale node-modules 
+npm install
+
+# inicie o projeto 
+npm start
+
+```
+<br>
+
+## 🤗 Contribua comigo<br/>
+
+- Faça um fork desse repositório.
+- Marque com star.
+- Entre em contato para dúvidas ou sugestões.
+
+<br>
+<br>
+
+## 👨🏻‍💻 Desenvolvedor
+
+<table align="center">
+    <tr>
+        <td align="center">
+            <a href="https://github.com/d3vnicolas">
+                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFTs-I4ZgLsLw/profile-displayphoto-shrink_200_200/0/1631751270500?e=1644451200&v=beta&t=7uU-qI1uesTSunIOe_FB8OLE6FOgk7R9lqUtJ36ORos" width="150px;" alt="Imagem de perfil Nicolas Soares" />
+            </a>
+        </td>    
+    </tr>
+</table>
+<h3 align="center">
+   <a href="https://www.linkedin.com/in/nicolas-soares-887655220/" target="_blank"> Nicolas Soares </a>
+</h3>
