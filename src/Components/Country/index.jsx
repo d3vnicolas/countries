@@ -2,28 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { Master, Wrapper, Left, Right, Infos } from './country';
 import NavBtn from '../NavBtn';
 import { BsArrowLeft } from 'react-icons/bs';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import countries from '../../API/country';
+import Loading from '../Loading';
 
 const Country = () => {
 
-    let { name } = useParams();
+    const { name } = useParams();
     const [country, setCountry] = useState([]);
+    const [borders, setBorders] = useState([]);
 
     const fetchData = async () => {
         const response = await countries.fullName(name);
         setCountry(response[0]);
+        const borders = await countries.borders(name);
+        setBorders(borders);
     }
 
-    useEffect(() => {
+    useEffect(() =>{
+        setBorders([]);
+        setCountry([]);
         fetchData();
-    }, []);
+    }, [name])
 
     return (
         <Master>
             <div className="container">
                 <NavBtn icon={<BsArrowLeft />} title="Back" />
-                {country.length !== 0 &&
+                {country.length !== 0 ?
                     <Wrapper>
                         <Left>
                             <img src={country.flags.svg} />
@@ -43,7 +49,7 @@ const Country = () => {
                                 </div>
                                 <div className="right">
                                     <p><b>Top Level Domain:</b> {country.tld} </p>
-                                    
+
                                     {country.currencies &&
                                         <p><b>Currencies:</b> {
                                             Object.entries(country.currencies).map(el => (
@@ -61,13 +67,14 @@ const Country = () => {
                                             ))
                                         } </p>
                                     }
+
                                 </div>
-                                {country.borders &&
+                                {borders.length > 0 &&
                                     <div className="bottom">
                                         <div className="wrapper_borders">
                                             <p>Border countries: </p>
-                                            {country.borders.map((bord, key) => (
-                                                <span key={key} className="borders">{bord}</span>
+                                            {borders.map((bord, key) => (
+                                                <Link to={`/${bord.name.common}`}  className="borders" key={key}> {bord.name.common} </Link>
                                             ))}
                                         </div>
                                     </div>
@@ -75,6 +82,8 @@ const Country = () => {
                             </Infos>
                         </Right>
                     </Wrapper>
+                    :
+                    <Loading />
                 }
             </div>
         </Master>

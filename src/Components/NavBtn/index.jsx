@@ -31,7 +31,7 @@ const Btn = styled.button`
 const NavBtn = (props) => {
     const navigate = useNavigate();
     return (
-        <Btn onClick={ () => navigate(-1) }>
+        <Btn onClick={ () => navigate('/') }>
             {props.icon}
             {props.title}
         </Btn>

@@ -105,13 +105,13 @@ export const Infos = styled.div`
             }
 
             .borders{
-            background-color: ${props => props.theme.colors.elements};
-            padding: 0 16px;
-            margin: 4px;
+                background-color: ${props => props.theme.colors.elements};
+                padding: 0 16px;
+                margin: 4px;
 
-            border-radius: 2px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
-        }
+                border-radius: 2px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+            }
         }
        
     }

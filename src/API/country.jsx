@@ -11,13 +11,23 @@ const countries = {
         return await dataApi('all?fields=name,population,region,subregion,capital,flags');
     },
     region: async (region) => {
-        return await dataApi('region/'+region);
+        return await dataApi('region/' + region);
     },
     fullName: async (name) => {
-        return await dataApi('name/'+name+'?fullText=true');
+        return await dataApi('name/' + name + '?fullText=true');
     },
     search: async (word) => {
-        return await dataApi('name/'+word);
+        return await dataApi('name/' + word);
+    },
+    borders: async (name) => {
+        const response = await dataApi(`name/${name}?fields=borders`);
+        if (response[0].borders.length) {
+            let borders = response[0].borders.toString();
+            const codes = await dataApi(`alpha?codes=${borders}`);
+            return codes;
+        }else {
+            return false;
+        }
     }
 }
 

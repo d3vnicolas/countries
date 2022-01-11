@@ -55,7 +55,7 @@ const Card = (props) => {
 
     return (
         <Wrapper>
-            <NavLink to={`/country/${props.name}`}>
+            <NavLink to={`/${props.name}`}>
                 <img src={props.flag} alt={`flag of ${props.name}`} />
                 <Info>
                     <h3> {props.name} </h3>

@@ -30,7 +30,7 @@ const Rotas = () => {
             <Router>
                 <Switch>
                     <Route path="/" element={<Main />} />
-                    <Route path="/country/:name" element={<Country />} />
+                    <Route path="/:name" element={<Country />} />
                 </Switch>
             </Router>
         </Rota>
