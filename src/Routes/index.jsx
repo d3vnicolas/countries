@@ -16,14 +16,13 @@ const Rotas = () => {
 
     const { setAll } = useGlobal();
 
-    const fetchData = async () => {
-        const response = await countries.all();
-        setAll(response);
-    }
-
     useEffect(() => {
+        const fetchData = async () => {
+            const response = await countries.all();
+            setAll(response);
+        }
         fetchData();
-    }, []);
+    }, [setAll]);
 
     return (
         <Rota>

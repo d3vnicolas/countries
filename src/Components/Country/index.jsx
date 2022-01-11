@@ -13,13 +13,6 @@ const Country = () => {
     const [country, setCountry] = useState([]);
     const [borders, setBorders] = useState([]);
 
-    const fetchData = async () => {
-        const response = await countries.fullName(name);
-        setCountry(response[0]);
-        const borders = await countries.borders(name);
-        setBorders(borders);
-    }
-
     const handleShowBorders = () => {
         if (!borders) {
             return false;
@@ -47,8 +40,16 @@ const Country = () => {
     useEffect(() => {
         setBorders([]);
         setCountry([]);
+
+        const fetchData = async () => {
+            const response = await countries.fullName(name);
+            setCountry(response[0]);
+            const borders = await countries.borders(name);
+            setBorders(borders);
+        }
+
         fetchData();
-    }, [name]);
+    }, [name, setCountry, setBorders]);
 
     return (
         <Master>
@@ -57,7 +58,7 @@ const Country = () => {
                 {country.length !== 0 ?
                     <Wrapper>
                         <Left>
-                            <img src={country.flags.svg} />
+                            <img src={country.flags.svg} alt={`flag of ${country.name.common}`} />
                         </Left>
                         <Right>
                             <h2>{country.name.common}</h2>
