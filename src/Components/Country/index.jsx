@@ -5,6 +5,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { Link, useParams } from 'react-router-dom';
 import countries from '../../API/country';
 import Loading from '../Loading';
+import LoadingCircle from '../LoadingCircle';
 
 const Country = () => {
 
@@ -19,11 +20,35 @@ const Country = () => {
         setBorders(borders);
     }
 
-    useEffect(() =>{
+    const handleShowBorders = () => {
+        if (!borders) {
+            return false;
+        } else {
+            if (borders.length > 0) {
+                return (
+                    <div className="bottom">
+                        <div className="wrapper_borders">
+                            <p>Border countries: </p>
+                            {borders.map((bord, key) => (
+                                <Link to={`/${bord.name.common}`} className="borders" key={key}> {bord.name.common} </Link>
+                            ))}
+
+                        </div>
+                    </div>
+                );
+            } else {
+                return (
+                    <LoadingCircle scale="64px" />
+                );
+            }
+        }
+    }
+
+    useEffect(() => {
         setBorders([]);
         setCountry([]);
         fetchData();
-    }, [name])
+    }, [name]);
 
     return (
         <Master>
@@ -69,16 +94,9 @@ const Country = () => {
                                     }
 
                                 </div>
-                                {borders.length > 0 &&
-                                    <div className="bottom">
-                                        <div className="wrapper_borders">
-                                            <p>Border countries: </p>
-                                            {borders.map((bord, key) => (
-                                                <Link to={`/${bord.name.common}`}  className="borders" key={key}> {bord.name.common} </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                }
+                                
+                                {handleShowBorders()}
+
                             </Infos>
                         </Right>
                     </Wrapper>

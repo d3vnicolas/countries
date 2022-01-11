@@ -28,7 +28,7 @@ export const Left = styled.div`
 
     img{
         width: 100%;
-        min-height: 335px;
+        height: 390px;
         object-fit: cover;
 
         @media (max-width: 580px){
@@ -99,6 +99,7 @@ export const Infos = styled.div`
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+            margin-bottom: 12px;
 
             p{
                 margin-right: 12px;
@@ -106,6 +107,9 @@ export const Infos = styled.div`
 
             .borders{
                 background-color: ${props => props.theme.colors.elements};
+                color: ${props => props.theme.colors.text};
+                cursor: pointer;
+                text-decoration: none;
                 padding: 0 16px;
                 margin: 4px;
 
